@@ -28,7 +28,7 @@ logger ──▶ udp_balancer ──▶ syslog1 └──▶ syslog2
 ```bash
 # Clone the repo
 git clone https://github.com/edwinsentinel/loggersudp.git
-cd udp-log-forwarder
+cd udploggers
 
 # Start the system
 docker-compose up --build
