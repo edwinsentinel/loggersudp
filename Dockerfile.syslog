@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY syslog_server.py .
+CMD ["python", "syslog_server.py"]

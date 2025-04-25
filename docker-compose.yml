@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  logger:
+    build:
+      context: .
+      dockerfile: Dockerfile.logger
+    container_name: logger
+    depends_on:
+      - udp_balancer
+
+  udp_balancer:
+    build:
+      context: .
+      dockerfile: Dockerfile.socat
+    container_name: udp_balancer
+    ports:
+      - "5140:5140/udp"
+    depends_on:
+      - syslog1
+      - syslog2
+
+  syslog1:
+    build:
+      context: .
+      dockerfile: Dockerfile.syslog
+    container_name: syslog1
+
+  syslog2:
+    build:
+      context: .
+      dockerfile: Dockerfile.syslog
+    container_name: syslog2

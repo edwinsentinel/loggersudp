@@ -1,0 +1,5 @@
+FROM alpine:latest
+RUN apk add --no-cache socat bash
+COPY udp_load_balancer.sh /udp_load_balancer.sh
+RUN chmod +x /udp_load_balancer.sh
+CMD ["/udp_load_balancer.sh"]
